@@ -1,30 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Transforms.TimeSeries;
-using System.Collections.Generic;
-using System.IO;
-using static Microsoft.ML.ForecastingCatalog;
-
 
 namespace TimeSeriesForecast
 {
-    internal class Program
+    public class DataForecast
     {
-        static void Main(string[] args)
+        public DataForecast()
         {
-            //GetForecast();
-            var dataForecast = new DataForecast();
-            dataForecast.GetData();
-            foreach (var forecast in dataForecast.Forecasts.Forecast)
-            {
-                Console.WriteLine(forecast);
-            }
 
-            Console.ReadLine();
         }
 
-        private static void GetForecast()
+        public void GetData()
         {
             var context = new MLContext();
             var data = context.Data.LoadFromTextFile<EnergyData>("../../energy_hourly.csv",
@@ -43,12 +35,10 @@ namespace TimeSeriesForecast
 
             var model = pipeline.Fit(data);
             var forecastingEnine = model.CreateTimeSeriesEngine<EnergyData, EnergyForecast>(context);
-            var forecasts = forecastingEnine.Predict();
+            Forecasts = forecastingEnine.Predict();
 
-            foreach (var forecast in forecasts.Forecast)
-            {
-                Console.WriteLine(forecast);
-            }
         }
+
+        public EnergyForecast Forecasts { get; set; }
     }
 }

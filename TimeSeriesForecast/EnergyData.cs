@@ -3,7 +3,7 @@ using System;
 
 namespace TimeSeriesForecast
 {
-    internal class EnergyData
+    public class EnergyData
     {
         [LoadColumn(0)]
         public DateTime DateTime { get; set; }

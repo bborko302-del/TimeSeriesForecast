@@ -118,6 +118,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataForecast.cs" />
     <Compile Include="EnergyData.cs" />
     <Compile Include="EnergyForecast.cs" />
     <Compile Include="Program.cs" />
