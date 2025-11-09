@@ -38,6 +38,8 @@ namespace TimeSeriesWeb.Controllers
 
             var gridData = new List<ForecastEnergyData>();
             gridData.Add(new ForecastEnergyData { ID = 1, EnergyHour = "KW", forecast = "10400" });
+            gridData.Add(new ForecastEnergyData { ID = 2, EnergyHour = "KW", forecast = "11400" });
+            gridData.Add(new ForecastEnergyData { ID = 3, EnergyHour = "KW", forecast = "12400" });
             return Json(gridData);
         }
 

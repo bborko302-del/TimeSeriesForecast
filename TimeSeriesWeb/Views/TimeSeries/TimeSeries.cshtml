@@ -78,29 +78,15 @@
         async: false,
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
-            debugger;
-            var mydata = data;
-            //var message = data.Result;
-           
-
-
+            /*
             var updatedData = [
                 { ID: 1, EnergyHour: "KW", forecast: "10000" },
                 { ID: 2, EnergyHour: "KW", forecast: "15000" }
             ];
-            $("#jsGrid").jsGrid("option", "data", updatedData).jsGrid("refresh");
-
-
-            /*
-            for (var i = 0; i <= mydata.length; i++) {
-                jQuery("#jsGrid").jqGrid('addRowData', i + 1, mydata[i]);
-                // set row height instead css
-                //jQuery(context.jqGridContext.selector).jqGrid('setRowData', i + 1, false, { height: 40 });
-            }
             */
 
-            //var message = data.Result;
-            //$("#Result").html(message);
+            $("#jsGrid").jsGrid("option", "data", data).jsGrid("refresh");
+
         },
 
 
